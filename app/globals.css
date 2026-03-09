@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-green-brand: #1B6B1B;
+  --color-green-light: #E8F5E8;
+  --color-green-dark: #145214;
+  --color-purple-brand: #5B2D8E;
+  --color-purple-light: #F0E8F7;
+  --color-purple-dark: #3D1E5F;
+  --color-offwhite: #F9F7F3;
+  --color-charcoal: #1A1A2E;
+  --font-clash: 'Clash Display', sans-serif;
+  --font-satoshi: 'Satoshi', sans-serif;
+}
