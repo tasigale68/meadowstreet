@@ -66,11 +66,16 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
-          href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap"
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap"
           rel="stylesheet"
         />
-        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -84,7 +89,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-satoshi bg-offwhite text-charcoal antialiased">
+      <body className="font-sans bg-cream text-charcoal antialiased">
         {children}
       </body>
     </html>

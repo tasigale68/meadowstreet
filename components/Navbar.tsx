@@ -20,7 +20,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close mobile menu on resize to desktop
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth >= 768) setMobileOpen(false);
@@ -31,44 +30,40 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-lg py-2"
-          : "bg-transparent py-4"
+          ? "bg-cream/90 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.06)]"
+          : "bg-transparent"
       }`}
     >
-      <div className="mx-auto max-w-7xl px-6 flex items-center justify-between">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-5 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3 relative z-10">
           <Image
             src="/logo.png"
             alt="Meadow Street"
-            width={160}
-            height={48}
+            width={150}
+            height={45}
             priority
-            className={`transition-all duration-300 ${
+            className={`transition-all duration-500 ${
               scrolled ? "brightness-0" : ""
             }`}
           />
         </a>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className={`font-satoshi font-medium transition-colors duration-200 ${
-                scrolled
-                  ? "text-charcoal hover:text-green-brand"
-                  : "text-charcoal/80 hover:text-green-brand"
-              }`}
+              className="font-sans text-[15px] font-medium text-charcoal/60 hover:text-green-brand transition-colors duration-200"
             >
               {link.label}
             </a>
           ))}
           <a
             href="#contact"
-            className="bg-gradient-to-r from-green-brand to-purple-brand text-white font-semibold px-6 py-2.5 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-200"
+            className="bg-green-brand text-white font-semibold text-[15px] px-6 py-2.5 rounded-xl hover:bg-green-dark transition-colors duration-200"
           >
             Refer a Participant
           </a>
@@ -104,12 +99,12 @@ export default function Navbar() {
           mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="bg-white/95 backdrop-blur-md border-t border-gray-100 px-6 py-6 space-y-4">
+        <div className="bg-cream/95 backdrop-blur-xl border-t border-charcoal/5 px-6 py-8 space-y-5">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="block font-satoshi font-medium text-charcoal hover:text-green-brand transition-colors text-lg"
+              className="block font-sans font-medium text-charcoal/70 hover:text-green-brand transition-colors text-lg"
               onClick={() => setMobileOpen(false)}
             >
               {link.label}
@@ -117,7 +112,7 @@ export default function Navbar() {
           ))}
           <a
             href="#contact"
-            className="block text-center bg-gradient-to-r from-green-brand to-purple-brand text-white font-semibold px-6 py-3 rounded-full text-lg"
+            className="block text-center bg-green-brand text-white font-semibold px-6 py-3 rounded-xl text-lg"
             onClick={() => setMobileOpen(false)}
           >
             Refer a Participant

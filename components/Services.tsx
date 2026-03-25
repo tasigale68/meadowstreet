@@ -5,77 +5,35 @@ import { useEffect, useRef, useState } from "react";
 const services = [
   {
     title: "Supported Independent Living",
-    subtitle: "SIL",
+    tag: "SIL",
     description:
-      "24/7 support in shared or individual living environments designed around your needs.",
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
-        <path
-          d="M6 22L24 8L42 22V40C42 41.1 41.1 42 40 42H8C6.9 42 6 41.1 6 40V22Z"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M18 42V26H30V42"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+      "24/7 support in shared or individual living environments designed around your needs and lifestyle.",
+    color: "bg-green-light",
+    accent: "text-green-brand",
   },
   {
     title: "Community Access",
-    subtitle: "",
+    tag: null,
     description:
       "Get support to attend appointments, explore hobbies, visit friends, or just get out and about.",
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
-        <circle cx="16" cy="16" r="5" stroke="currentColor" strokeWidth="2.5" />
-        <circle cx="32" cy="16" r="5" stroke="currentColor" strokeWidth="2.5" />
-        <circle cx="24" cy="32" r="5" stroke="currentColor" strokeWidth="2.5" />
-        <path d="M19 20L22 28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M29 20L26 28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M19.5 32H28.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    ),
+    color: "bg-purple-light",
+    accent: "text-purple-brand",
   },
   {
     title: "In-Home Support",
-    subtitle: "",
+    tag: null,
     description:
       "Respectful, reliable help with personal care, daily routines, and household tasks.",
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
-        <path
-          d="M24 42C24 42 6 32 6 18C6 14.6863 7.31696 11.5086 9.66117 9.16441C12.0054 6.82017 15.183 5.50317 18.4967 5.50317C21.0138 5.50317 23.4341 6.33717 24 8.50317C24.5659 6.33717 26.9862 5.50317 29.5033 5.50317C32.817 5.50317 35.9946 6.82017 38.3388 9.16441C40.683 11.5086 42 14.6863 42 18C42 32 24 42 24 42Z"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    color: "bg-green-light",
+    accent: "text-green-brand",
   },
   {
     title: "Daily Living & Life Skills",
-    subtitle: "",
+    tag: null,
     description:
       "Build confidence and independence: from travel training and budgeting to cooking and self care.",
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
-        <path
-          d="M24 4L29.09 16.26L42 18.27L32 28.14L34.18 42L24 36.27L13.82 42L16 28.14L6 18.27L18.91 16.26L24 4Z"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    color: "bg-purple-light",
+    accent: "text-purple-brand",
   },
 ];
 
@@ -106,50 +64,54 @@ export default function Services() {
   const { ref, visible } = useInView();
 
   return (
-    <section id="services" className="relative py-24 md:py-32 bg-offwhite">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="text-center mb-16 md:mb-20">
-          <p className="font-satoshi font-semibold text-green-brand text-sm tracking-widest uppercase mb-4">
+    <section id="services" className="relative py-24 md:py-36 bg-white">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Section header — left aligned */}
+        <div className="max-w-2xl mb-16 md:mb-20">
+          <span className="font-sans font-semibold text-green-brand text-sm tracking-wide uppercase">
             What We Do
-          </p>
-          <h2 className="font-clash text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Our{" "}
-            <span className="bg-gradient-to-r from-green-brand to-purple-brand bg-clip-text text-transparent">
-              Services
-            </span>
+          </span>
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mt-4 leading-[1.1]">
+            Support tailored to{" "}
+            <em className="italic text-green-brand">your life</em>
           </h2>
-          <p className="font-satoshi text-lg text-charcoal/60 max-w-2xl mx-auto">
-            Tailored NDIS support that puts you in control of your life, your
-            goals, and your choices.
+          <p className="font-sans text-warm-gray text-lg mt-5 leading-relaxed">
+            Personalised NDIS support that puts you in control of your goals and choices.
           </p>
         </div>
 
+        {/* Cards — 2x2 grid with alternating color accents */}
         <div
           ref={ref}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6"
         >
           {services.map((service, i) => (
             <div
               key={service.title}
-              className={`group relative bg-white rounded-2xl p-8 border-l-4 border-green-brand shadow-sm
-                hover:shadow-xl hover:-translate-y-2 hover:border-purple-brand
+              className={`group relative rounded-2xl p-8 md:p-10 border border-charcoal/[0.06] bg-cream/50
+                hover:border-charcoal/[0.12] hover:shadow-lg
                 transition-all duration-300 ease-out
-                ${visible ? "animate-[slide-up_0.6s_ease-out_both]" : "opacity-0"}
+                ${visible ? "animate-[fade-up_0.5s_ease-out_both]" : "opacity-0"}
               `}
-              style={{ animationDelay: visible ? `${i * 0.12}s` : undefined }}
+              style={{ animationDelay: visible ? `${i * 0.1}s` : undefined }}
             >
-              <div className="text-green-brand group-hover:text-purple-brand transition-colors duration-300 mb-6">
-                {service.icon}
+              {/* Color accent dot */}
+              <div className={`w-10 h-10 rounded-xl ${service.color} flex items-center justify-center mb-6`}>
+                <span className={`font-sans font-bold text-sm ${service.accent}`}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
               </div>
-              {service.subtitle && (
-                <span className="inline-block bg-green-light text-green-dark text-xs font-semibold px-3 py-1 rounded-full mb-3">
-                  {service.subtitle}
+
+              {service.tag && (
+                <span className={`inline-block ${service.color} ${service.accent} text-xs font-semibold px-3 py-1 rounded-md mb-3`}>
+                  {service.tag}
                 </span>
               )}
-              <h3 className="font-clash text-xl font-bold mb-3 group-hover:text-purple-brand transition-colors">
+
+              <h3 className="font-serif text-2xl md:text-[1.7rem] leading-tight mb-3 group-hover:text-green-brand transition-colors duration-200">
                 {service.title}
               </h3>
-              <p className="font-satoshi text-charcoal/60 leading-relaxed">
+              <p className="font-sans text-warm-gray leading-relaxed">
                 {service.description}
               </p>
             </div>

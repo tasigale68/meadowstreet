@@ -9,39 +9,29 @@ const quickLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-charcoal text-white overflow-hidden">
-      {/* Diagonal top edge */}
-      <div className="absolute -top-1 left-0 right-0">
-        <svg
-          viewBox="0 0 1440 80"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full"
-          preserveAspectRatio="none"
-        >
-          <path d="M0 80L1440 0V80H0Z" fill="#1A1A2E" />
-        </svg>
-      </div>
-
-      <div className="mx-auto max-w-7xl px-6 pt-24 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+    <footer className="bg-charcoal text-white">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-20 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           {/* Brand column */}
-          <div>
+          <div className="md:col-span-5">
             <Image
               src="/logo.png"
               alt="Meadow Street"
-              width={180}
-              height={54}
+              width={160}
+              height={48}
               className="mb-6"
             />
-            <p className="font-satoshi text-white/60 leading-relaxed mb-6">
+            <p className="font-sans text-white/45 leading-relaxed max-w-sm">
               Empowering your journey with personalised NDIS support across
-              Melbourne.
+              Melbourne, Victoria.
             </p>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-green-brand/20 flex items-center justify-center">
+            <a
+              href="mailto:cooper@meadowstreet.com.au"
+              className="inline-flex items-center gap-3 mt-6 font-sans text-white/60 hover:text-green-brand transition-colors group"
+            >
+              <div className="w-9 h-9 rounded-lg bg-white/[0.06] flex items-center justify-center group-hover:bg-green-brand/20 transition-colors">
                 <svg
-                  className="w-5 h-5 text-green-brand"
+                  className="w-4 h-4"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -54,38 +44,22 @@ export default function Footer() {
                   />
                 </svg>
               </div>
-              <a
-                href="mailto:cooper@meadowstreet.com.au"
-                className="font-satoshi text-white/80 hover:text-green-brand transition-colors"
-              >
-                cooper@meadowstreet.com.au
-              </a>
-            </div>
+              cooper@meadowstreet.com.au
+            </a>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="font-clash font-bold text-lg mb-6">Quick Links</h3>
+          <div className="md:col-span-3">
+            <h3 className="font-serif text-lg mb-6 text-white/80">
+              Quick Links
+            </h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="font-satoshi text-white/60 hover:text-green-brand transition-colors inline-flex items-center gap-2 group"
+                    className="font-sans text-[15px] text-white/40 hover:text-green-brand transition-colors"
                   >
-                    <svg
-                      className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
                     {link.label}
                   </a>
                 </li>
@@ -93,14 +67,16 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* NDIS Badge + info */}
-          <div>
-            <h3 className="font-clash font-bold text-lg mb-6">Accreditation</h3>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+          {/* NDIS Badge */}
+          <div className="md:col-span-4">
+            <h3 className="font-serif text-lg mb-6 text-white/80">
+              Accreditation
+            </h3>
+            <div className="bg-white/[0.04] border border-white/[0.06] rounded-2xl p-6">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-green-brand to-purple-brand flex items-center justify-center flex-shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-green-brand/20 flex items-center justify-center flex-shrink-0">
                   <svg
-                    className="w-7 h-7 text-white"
+                    className="w-5 h-5 text-green-brand"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -114,15 +90,15 @@ export default function Footer() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-clash font-bold text-white">
+                  <p className="font-sans font-semibold text-white/80 text-sm">
                     NDIS Registered Provider
                   </p>
-                  <p className="font-satoshi text-white/50 text-sm">
+                  <p className="font-sans text-white/35 text-sm">
                     Quality assured services
                   </p>
                 </div>
               </div>
-              <p className="font-satoshi text-white/40 text-sm leading-relaxed">
+              <p className="font-sans text-white/30 text-sm leading-relaxed">
                 Meadow Street is a registered NDIS provider delivering quality
                 disability support services across Melbourne, Victoria.
               </p>
@@ -131,11 +107,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-satoshi text-white/40 text-sm">
+        <div className="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="font-sans text-white/30 text-sm">
             &copy; 2026 Meadow Street. All rights reserved.
           </p>
-          <p className="font-satoshi text-white/30 text-xs">
+          <p className="font-sans text-white/20 text-xs">
             ABN and NDIS registration details available on request.
           </p>
         </div>

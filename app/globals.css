@@ -4,63 +4,58 @@
   --color-green-brand: #1B6B1B;
   --color-green-light: #E8F5E8;
   --color-green-dark: #145214;
+  --color-green-muted: #2D8A2D;
   --color-purple-brand: #5B2D8E;
   --color-purple-light: #F0E8F7;
   --color-purple-dark: #3D1E5F;
+  --color-cream: #FAF6F0;
   --color-offwhite: #F9F7F3;
   --color-charcoal: #1A1A2E;
-  --font-clash: 'Clash Display', sans-serif;
-  --font-satoshi: 'Satoshi', sans-serif;
+  --color-warm-gray: #6B6B7B;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
 }
 
-/* Scroll-triggered animations */
+/* Animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-@keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
 }
 
-/* Selection colour */
 ::selection {
   background-color: #1B6B1B;
   color: white;
 }
 
-/* Custom scrollbar */
+/* Refined scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F9F7F3;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1B6B1B;
-  border-radius: 4px;
+  background: #1B6B1B40;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #145214;
+  background: #1B6B1B80;
 }

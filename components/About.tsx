@@ -29,42 +29,25 @@ export default function About() {
   const { ref, visible } = useInView();
 
   return (
-    <section id="about" className="relative py-24 md:py-32 overflow-hidden">
-      {/* Diagonal top divider */}
-      <div className="absolute -top-1 left-0 right-0">
-        <svg
-          viewBox="0 0 1440 120"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full"
-          preserveAspectRatio="none"
-        >
-          <path d="M0 0L1440 120V0H0Z" fill="#F9F7F3" />
-        </svg>
-      </div>
-
-      <div className="bg-gradient-to-br from-green-light/50 via-white to-purple-light/30 absolute inset-0" />
-
+    <section id="about" className="relative py-24 md:py-36 bg-green-light/30 overflow-hidden">
       <div
         ref={ref}
-        className="relative mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+        className="relative mx-auto max-w-7xl px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
       >
-        {/* Left: Text content */}
+        {/* Left: Text content (7 cols) */}
         <div
-          className={`${
-            visible ? "animate-[slide-up_0.7s_ease-out_both]" : "opacity-0"
+          className={`lg:col-span-7 ${
+            visible ? "animate-[fade-up_0.7s_ease-out_both]" : "opacity-0"
           }`}
         >
-          <p className="font-satoshi font-semibold text-purple-brand text-sm tracking-widest uppercase mb-4">
+          <span className="font-sans font-semibold text-purple-brand text-sm tracking-wide uppercase">
             About Us
-          </p>
-          <h2 className="font-clash text-4xl md:text-5xl font-bold mb-8 leading-tight">
-            Why{" "}
-            <span className="bg-gradient-to-r from-green-brand to-purple-brand bg-clip-text text-transparent">
-              Meadow Street?
-            </span>
+          </span>
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mt-4 leading-[1.1]">
+            Why <em className="italic text-green-brand">Meadow Street?</em>
           </h2>
-          <div className="space-y-5 font-satoshi text-lg text-charcoal/70 leading-relaxed">
+
+          <div className="space-y-5 font-sans text-warm-gray text-lg leading-relaxed mt-8">
             <p>
               We believe great support starts with genuine connection. Our team
               brings lived experience, cultural understanding, and a real
@@ -77,10 +60,10 @@ export default function About() {
             </p>
           </div>
 
-          {/* Highlight bullet */}
-          <div className="mt-8 bg-white rounded-2xl p-6 border border-green-brand/20 shadow-sm">
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-green-brand to-purple-brand flex items-center justify-center">
+          {/* Monthly reports highlight */}
+          <div className="mt-10 bg-white rounded-2xl p-6 md:p-8 border border-charcoal/[0.06]">
+            <div className="flex items-start gap-5">
+              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-green-brand flex items-center justify-center">
                 <svg
                   className="w-6 h-6 text-white"
                   fill="none"
@@ -96,10 +79,10 @@ export default function About() {
                 </svg>
               </div>
               <div>
-                <h3 className="font-clash font-bold text-lg mb-1">
+                <h3 className="font-serif text-xl mb-2">
                   Monthly Reports for Support Coordinators
                 </h3>
-                <p className="font-satoshi text-charcoal/60">
+                <p className="font-sans text-warm-gray leading-relaxed">
                   Detailed updates covering WINS, CHALLENGES, and BARRIERS so
                   coordinators always know how participants are progressing.
                 </p>
@@ -107,39 +90,42 @@ export default function About() {
             </div>
           </div>
 
-          {/* Extra value props */}
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Value props */}
+          <div className="mt-8 grid grid-cols-2 gap-x-8 gap-y-4">
             {[
-              { label: "Person centred approach", icon: "✦" },
-              { label: "Culturally safe support", icon: "✦" },
-              { label: "Flexible scheduling", icon: "✦" },
-              { label: "Experienced team", icon: "✦" },
+              "Person centred approach",
+              "Culturally safe support",
+              "Flexible scheduling",
+              "Experienced team",
             ].map((item) => (
-              <div key={item.label} className="flex items-center gap-3">
-                <span className="text-green-brand font-bold">{item.icon}</span>
-                <span className="font-satoshi font-medium text-charcoal/80">
-                  {item.label}
+              <div key={item} className="flex items-center gap-3">
+                <div className="w-5 h-5 rounded-md bg-green-brand/10 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-3 h-3 text-green-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span className="font-sans font-medium text-charcoal/80 text-[15px]">
+                  {item}
                 </span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Right: Placeholder image area */}
+        {/* Right: Image placeholder (5 cols) */}
         <div
-          className={`${
+          className={`lg:col-span-5 ${
             visible
-              ? "animate-[slide-up_0.7s_ease-out_0.2s_both]"
+              ? "animate-[fade-up_0.7s_ease-out_0.15s_both]"
               : "opacity-0"
           }`}
         >
           <div className="relative">
-            <div className="aspect-[4/5] rounded-3xl bg-gradient-to-br from-green-brand/10 via-purple-brand/10 to-green-light overflow-hidden shadow-2xl">
-              {/* Decorative content for placeholder */}
+            <div className="aspect-[3/4] rounded-2xl bg-gradient-to-b from-green-brand/8 to-purple-brand/8 border border-charcoal/[0.06] overflow-hidden">
               <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-green-brand to-purple-brand flex items-center justify-center mb-6">
+                <div className="w-20 h-20 rounded-2xl bg-green-brand/10 flex items-center justify-center mb-5">
                   <svg
-                    className="w-12 h-12 text-white"
+                    className="w-10 h-10 text-green-brand/40"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -152,13 +138,11 @@ export default function About() {
                     />
                   </svg>
                 </div>
-                <p className="font-clash text-xl font-bold text-charcoal/40 text-center">
+                <p className="font-serif text-lg italic text-charcoal/25 text-center">
                   Team Photo Coming Soon
                 </p>
               </div>
             </div>
-            {/* Decorative accent */}
-            <div className="absolute -bottom-4 -right-4 w-full h-full rounded-3xl border-2 border-green-brand/20 -z-10" />
           </div>
         </div>
       </div>
