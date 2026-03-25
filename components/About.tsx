@@ -25,29 +25,32 @@ function useInView(threshold = 0.2) {
   return { ref, visible };
 }
 
+const values = [
+  { label: "Person centred approach", icon: "01" },
+  { label: "Culturally safe support", icon: "02" },
+  { label: "Flexible scheduling", icon: "03" },
+  { label: "Experienced team", icon: "04" },
+];
+
 export default function About() {
   const { ref, visible } = useInView();
 
   return (
-    <section id="about" className="relative py-24 md:py-36 bg-green-light/30 overflow-hidden">
+    <section id="about" className="relative py-24 md:py-32 bg-offwhite overflow-hidden">
       <div
         ref={ref}
-        className="relative mx-auto max-w-7xl px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
+        className="relative mx-auto max-w-7xl px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start"
       >
-        {/* Left: Text content (7 cols) */}
-        <div
-          className={`lg:col-span-7 ${
-            visible ? "animate-[fade-up_0.7s_ease-out_both]" : "opacity-0"
-          }`}
-        >
-          <span className="font-sans font-semibold text-purple-brand text-sm tracking-wide uppercase">
+        {/* Left column */}
+        <div className={visible ? "animate-[fade-up_0.6s_ease-out_both]" : "opacity-0"}>
+          <span className="font-body font-semibold text-purple-brand text-xs tracking-widest uppercase">
             About Us
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mt-4 leading-[1.1]">
-            Why <em className="italic text-green-brand">Meadow Street?</em>
+          <h2 className="font-display font-700 text-4xl md:text-5xl mt-3 tracking-tight leading-[1.08]">
+            Why Meadow Street?
           </h2>
 
-          <div className="space-y-5 font-sans text-warm-gray text-lg leading-relaxed mt-8">
+          <div className="space-y-4 font-body text-warm-gray text-[16px] leading-[1.7] mt-7">
             <p>
               We believe great support starts with genuine connection. Our team
               brings lived experience, cultural understanding, and a real
@@ -60,88 +63,53 @@ export default function About() {
             </p>
           </div>
 
-          {/* Monthly reports highlight */}
-          <div className="mt-10 bg-white rounded-2xl p-6 md:p-8 border border-charcoal/[0.06]">
-            <div className="flex items-start gap-5">
-              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-green-brand flex items-center justify-center">
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h3 className="font-serif text-xl mb-2">
-                  Monthly Reports for Support Coordinators
-                </h3>
-                <p className="font-sans text-warm-gray leading-relaxed">
-                  Detailed updates covering WINS, CHALLENGES, and BARRIERS so
-                  coordinators always know how participants are progressing.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Value props */}
-          <div className="mt-8 grid grid-cols-2 gap-x-8 gap-y-4">
-            {[
-              "Person centred approach",
-              "Culturally safe support",
-              "Flexible scheduling",
-              "Experienced team",
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-3">
-                <div className="w-5 h-5 rounded-md bg-green-brand/10 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-3 h-3 text-green-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span className="font-sans font-medium text-charcoal/80 text-[15px]">
-                  {item}
+          {/* Value props grid */}
+          <div className="grid grid-cols-2 gap-3 mt-10">
+            {values.map((item) => (
+              <div
+                key={item.label}
+                className="flex items-center gap-3 bg-white rounded-xl px-4 py-3.5 border border-charcoal/[0.05]"
+              >
+                <span className="font-display font-700 text-green-brand text-sm">
+                  {item.icon}
+                </span>
+                <span className="font-body font-medium text-charcoal text-[14px]">
+                  {item.label}
                 </span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Right: Image placeholder (5 cols) */}
-        <div
-          className={`lg:col-span-5 ${
-            visible
-              ? "animate-[fade-up_0.7s_ease-out_0.15s_both]"
-              : "opacity-0"
-          }`}
-        >
-          <div className="relative">
-            <div className="aspect-[3/4] rounded-2xl bg-gradient-to-b from-green-brand/8 to-purple-brand/8 border border-charcoal/[0.06] overflow-hidden">
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
-                <div className="w-20 h-20 rounded-2xl bg-green-brand/10 flex items-center justify-center mb-5">
-                  <svg
-                    className="w-10 h-10 text-green-brand/40"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                    />
-                  </svg>
-                </div>
-                <p className="font-serif text-lg italic text-charcoal/25 text-center">
-                  Team Photo Coming Soon
-                </p>
+        {/* Right column */}
+        <div className={visible ? "animate-[fade-up_0.6s_ease-out_0.12s_both]" : "opacity-0"}>
+          {/* SC Reports card — prominent */}
+          <div className="bg-green-brand rounded-2xl p-8 md:p-10 text-white mb-5">
+            <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center mb-6">
+              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <h3 className="font-display font-700 text-2xl mb-3 tracking-tight">
+              Monthly Reports for Support Coordinators
+            </h3>
+            <p className="font-body text-white/70 leading-relaxed">
+              Detailed updates covering WINS, CHALLENGES, and BARRIERS so
+              coordinators always know how participants are progressing.
+            </p>
+          </div>
+
+          {/* Team photo placeholder */}
+          <div className="aspect-[16/9] rounded-2xl bg-white border border-charcoal/[0.06] overflow-hidden flex items-center justify-center">
+            <div className="text-center">
+              <div className="w-14 h-14 rounded-2xl bg-charcoal/[0.03] flex items-center justify-center mx-auto mb-3">
+                <svg className="w-7 h-7 text-charcoal/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
               </div>
+              <p className="font-body text-charcoal/25 text-sm font-medium">
+                Team Photo Coming Soon
+              </p>
             </div>
           </div>
         </div>

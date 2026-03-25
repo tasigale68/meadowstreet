@@ -8,19 +8,18 @@
   --color-purple-brand: #5B2D8E;
   --color-purple-light: #F0E8F7;
   --color-purple-dark: #3D1E5F;
-  --color-cream: #FAF6F0;
-  --color-offwhite: #F9F7F3;
+  --color-cream: #FAFAF5;
+  --color-offwhite: #F4F4EE;
   --color-charcoal: #1A1A2E;
-  --color-warm-gray: #6B6B7B;
-  --font-serif: 'Instrument Serif', Georgia, serif;
-  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --color-warm-gray: #64647A;
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
 }
 
-/* Animations */
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(28px);
   }
   to {
     opacity: 1;
@@ -42,7 +41,6 @@ html {
   color: white;
 }
 
-/* Refined scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -52,10 +50,10 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1B6B1B40;
+  background: #1B6B1B30;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1B6B1B80;
+  background: #1B6B1B60;
 }

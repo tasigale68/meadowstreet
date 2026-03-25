@@ -30,81 +30,69 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
         scrolled
-          ? "bg-cream/90 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.06)]"
+          ? "bg-white/90 backdrop-blur-xl shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-5 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-3 relative z-10">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 h-[72px] flex items-center justify-between">
+        <a href="#" className="relative z-10">
           <Image
             src="/logo.png"
             alt="Meadow Street"
-            width={150}
-            height={45}
+            width={145}
+            height={44}
             priority
-            className={`transition-all duration-500 ${
-              scrolled ? "brightness-0" : ""
-            }`}
+            className={`transition-all duration-400 ${scrolled ? "brightness-0" : ""}`}
           />
         </a>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-10">
+        {/* Desktop */}
+        <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="font-sans text-[15px] font-medium text-charcoal/60 hover:text-green-brand transition-colors duration-200"
+              className="font-body text-sm font-medium text-charcoal/50 hover:text-charcoal px-4 py-2 rounded-lg hover:bg-charcoal/[0.04] transition-all duration-200"
             >
               {link.label}
             </a>
           ))}
           <a
             href="#contact"
-            className="bg-green-brand text-white font-semibold text-[15px] px-6 py-2.5 rounded-xl hover:bg-green-dark transition-colors duration-200"
+            className="ml-4 bg-green-brand text-white font-body font-semibold text-sm px-5 py-2.5 rounded-xl hover:bg-green-dark transition-colors duration-200"
           >
             Refer a Participant
           </a>
         </div>
 
-        {/* Mobile Hamburger */}
+        {/* Mobile toggle */}
         <button
-          className="md:hidden flex flex-col gap-1.5 relative z-10 p-2"
+          className="md:hidden relative z-10 p-2 -mr-2"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
-          <span
-            className={`block w-6 h-0.5 bg-charcoal transition-all duration-300 ${
-              mobileOpen ? "rotate-45 translate-y-2" : ""
-            }`}
-          />
-          <span
-            className={`block w-6 h-0.5 bg-charcoal transition-all duration-300 ${
-              mobileOpen ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`block w-6 h-0.5 bg-charcoal transition-all duration-300 ${
-              mobileOpen ? "-rotate-45 -translate-y-2" : ""
-            }`}
-          />
+          <div className="w-6 h-5 flex flex-col justify-between">
+            <span className={`block w-full h-0.5 bg-charcoal transition-all duration-300 origin-left ${mobileOpen ? "rotate-45 w-[26px]" : ""}`} />
+            <span className={`block w-full h-0.5 bg-charcoal transition-all duration-300 ${mobileOpen ? "opacity-0 -translate-x-2" : ""}`} />
+            <span className={`block w-full h-0.5 bg-charcoal transition-all duration-300 origin-left ${mobileOpen ? "-rotate-45 w-[26px]" : ""}`} />
+          </div>
         </button>
       </div>
 
       {/* Mobile Menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ${
-          mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          mobileOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="bg-cream/95 backdrop-blur-xl border-t border-charcoal/5 px-6 py-8 space-y-5">
+        <div className="bg-white border-t border-charcoal/5 px-6 py-6 space-y-1">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="block font-sans font-medium text-charcoal/70 hover:text-green-brand transition-colors text-lg"
+              className="block font-body font-medium text-charcoal/60 hover:text-charcoal py-3 text-lg transition-colors"
               onClick={() => setMobileOpen(false)}
             >
               {link.label}
@@ -112,7 +100,7 @@ export default function Navbar() {
           ))}
           <a
             href="#contact"
-            className="block text-center bg-green-brand text-white font-semibold px-6 py-3 rounded-xl text-lg"
+            className="block text-center bg-green-brand text-white font-body font-semibold px-6 py-3.5 rounded-xl text-lg mt-4"
             onClick={() => setMobileOpen(false)}
           >
             Refer a Participant

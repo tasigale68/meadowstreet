@@ -2,74 +2,89 @@
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[100svh] flex items-end overflow-hidden bg-cream">
-      {/* Soft radial glow */}
-      <div className="absolute top-0 right-0 w-[60%] h-[70%] bg-green-light/40 rounded-full blur-[120px] opacity-60" />
-      <div className="absolute bottom-0 left-0 w-[40%] h-[50%] bg-purple-light/30 rounded-full blur-[100px] opacity-50" />
+    <section className="relative min-h-[100svh] flex items-center overflow-hidden">
+      {/* Background: split layout with green accent panel */}
+      <div className="absolute inset-0 bg-cream" />
+      <div className="absolute top-0 right-0 w-[40%] h-full bg-green-brand hidden lg:block" />
 
-      {/* Content */}
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8 pt-40 pb-20 md:pb-28 w-full">
-        <div className="max-w-4xl">
-          <div className="animate-[fade-up_0.8s_ease-out]">
-            <div className="inline-flex items-center gap-2 bg-green-light/60 text-green-brand font-sans font-semibold text-sm px-4 py-2 rounded-lg mb-8">
-              <span className="w-2 h-2 rounded-full bg-green-brand" />
-              NDIS Registered Provider &bull; Melbourne
+      {/* Content grid */}
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8 w-full pt-28 pb-16 md:pt-32 md:pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Left content */}
+          <div className="lg:col-span-7">
+            <div className="animate-[fade-up_0.7s_ease-out]">
+              <div className="inline-flex items-center gap-2.5 bg-green-brand/8 border border-green-brand/15 text-green-brand font-body font-semibold text-xs tracking-wide uppercase px-4 py-2 rounded-full mb-8">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-brand animate-pulse" />
+                NDIS Registered Provider &bull; Melbourne
+              </div>
+            </div>
+
+            <h1 className="font-display text-[3.2rem] sm:text-6xl md:text-7xl lg:text-[5.2rem] font-800 leading-[1.02] tracking-tight animate-[fade-up_0.7s_ease-out_0.08s_both]">
+              Empowering
+              <br />
+              <span className="text-green-brand">your journey</span>
+            </h1>
+
+            <p className="font-body text-warm-gray text-lg md:text-xl mt-7 max-w-lg leading-relaxed animate-[fade-up_0.7s_ease-out_0.2s_both]">
+              Supported Independent Living, Community Access, and personalised
+              support built around your goals and choices.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-3 mt-10 animate-[fade-up_0.7s_ease-out_0.32s_both]">
+              <a
+                href="#services"
+                className="inline-flex items-center justify-center gap-2 bg-green-brand text-white font-body font-semibold px-7 py-3.5 rounded-xl text-[15px] hover:bg-green-dark transition-all duration-200 group"
+              >
+                Our Services
+                <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center bg-charcoal text-white font-body font-semibold px-7 py-3.5 rounded-xl text-[15px] hover:bg-charcoal/85 transition-all duration-200"
+              >
+                Refer a Participant
+              </a>
+            </div>
+
+            {/* Trust badges */}
+            <div className="flex items-center gap-6 mt-12 pt-8 border-t border-charcoal/[0.06] animate-[fade-up_0.7s_ease-out_0.45s_both]">
+              <div>
+                <p className="font-display font-700 text-2xl text-charcoal">24hr</p>
+                <p className="font-body text-warm-gray text-sm">Response time</p>
+              </div>
+              <div className="w-px h-10 bg-charcoal/10" />
+              <div>
+                <p className="font-display font-700 text-2xl text-charcoal">NDIS</p>
+                <p className="font-body text-warm-gray text-sm">Registered</p>
+              </div>
+              <div className="w-px h-10 bg-charcoal/10" />
+              <div>
+                <p className="font-display font-700 text-2xl text-charcoal">Melbourne</p>
+                <p className="font-body text-warm-gray text-sm">Wide coverage</p>
+              </div>
             </div>
           </div>
 
-          <h1 className="animate-[fade-up_0.8s_ease-out_0.1s_both]">
-            <span className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] leading-[0.95] block text-charcoal">
-              Empowering
-            </span>
-            <span className="font-serif italic text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] leading-[0.95] block text-green-brand mt-1">
-              your journey
-            </span>
-          </h1>
-
-          <p className="font-sans text-lg md:text-xl text-warm-gray mt-8 md:mt-10 max-w-xl leading-relaxed animate-[fade-up_0.8s_ease-out_0.3s_both]">
-            Supported Independent Living, Community Access, and personalised
-            support built around your goals and choices.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 mt-10 md:mt-12 animate-[fade-up_0.8s_ease-out_0.45s_both]">
-            <a
-              href="#services"
-              className="inline-flex items-center justify-center bg-green-brand text-white font-sans font-semibold px-7 py-3.5 rounded-xl text-base hover:bg-green-dark transition-colors duration-200 group"
-            >
-              Our Services
-              <svg
-                className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center bg-charcoal/5 text-charcoal font-sans font-semibold px-7 py-3.5 rounded-xl text-base hover:bg-charcoal/10 transition-colors duration-200"
-            >
-              Refer a Participant
-            </a>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="hidden md:flex absolute bottom-8 right-8 flex-col items-center gap-2 text-charcoal/30 animate-[fade-in_1s_ease-out_1s_both]">
-          <span className="font-sans text-xs tracking-widest uppercase" style={{ writingMode: "vertical-rl" }}>Scroll</span>
-          <div className="w-px h-12 bg-charcoal/20 relative overflow-hidden">
-            <div className="w-full h-4 bg-green-brand/40 animate-[scroll-line_2s_ease-in-out_infinite]" />
+          {/* Right panel: decorative content on green (desktop) */}
+          <div className="hidden lg:flex lg:col-span-5 items-center justify-center relative">
+            <div className="text-white/90 text-center px-8">
+              <div className="w-20 h-20 rounded-2xl bg-white/15 flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
+                <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </div>
+              <p className="font-display font-700 text-3xl leading-tight mb-3">
+                Person centred support
+              </p>
+              <p className="font-body text-white/60 text-base leading-relaxed max-w-xs mx-auto">
+                Every plan is shaped by your goals, your preferences, and your pace.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes scroll-line {
-          0% { transform: translateY(-100%); }
-          100% { transform: translateY(300%); }
-        }
-      `}</style>
     </section>
   );
 }

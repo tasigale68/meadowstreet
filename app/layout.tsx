@@ -73,7 +73,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Outfit:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
         <script
@@ -89,7 +89,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans bg-cream text-charcoal antialiased">
+      <body className="font-body bg-cream text-charcoal antialiased">
         {children}
       </body>
     </html>
