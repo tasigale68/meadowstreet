@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.meadowstreet.com.au/sitemap.xml
